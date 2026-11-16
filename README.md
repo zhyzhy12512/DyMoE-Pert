@@ -83,9 +83,3 @@ embeddings/      Required fixed model inputs
 requirements.txt Python dependencies
 LICENSE          Upstream code license
 ```
-
-## Attribution and scope
-
-This implementation builds on the [scPert source code](https://github.com/AI4VirtualCell/scPert), uses [scGPT](https://github.com/bowang-lab/scGPT)-derived representations, and loads processed perturbation datasets made available through [GEARS](https://github.com/snap-stanford/GEARS). The upstream scPert `LICENSE` is preserved verbatim, including its placeholder copyright field.
-
-The repository focuses on training and prediction. Reproducing every manuscript table additionally requires the separate evaluation workflow and dataset-specific checkpoints. Only load dataset archives and model checkpoints from sources you trust: the loader uses Python pickle for processed graph caches and checkpoint configuration.
