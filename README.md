@@ -14,6 +14,10 @@ The accompanying manuscript evaluates unseen single-gene and combinatorial pertu
 
 This repository provides the **core runnable implementation**: the model, data loader, training and prediction commands, and the fixed gene-embedding files needed at runtime. It does not include expression datasets, trained checkpoints, experiment logs, or scripts for reproducing every manuscript table.
 
+## Model architecture
+
+![DyMoE-Pert model architecture: multimodal feature embedding, dynamic residual mixture-of-experts fusion, and expression prediction](figures/dymoe_architecture.png)
+
 ## Installation
 
 ```bash
@@ -72,14 +76,3 @@ python scripts/infer.py --data-name norman --checkpoint norman_dymoe --perturbat
 A double-gene perturbation has the form `GENE1+GENE2`. Both gene names must occur in the selected dataset's perturbation vocabulary. The script writes `pred_dymoe_<perturbation>.npz` to the current directory. The file contains a mean predicted expression vector and individual predictions for 32 sampled control cells by default. Set `--num-cells 300` to use 300 cells, and adjust `--batch-size` to fit your GPU memory (default: 8).
 
 If running on CPU, set `--device cpu`; model training and inference will be much slower. The first run also takes time and disk space to download/process the selected dataset and build graph caches.
-
-## Repository structure
-
-```text
-models/          DyMoE-Pert architecture, graph/data processing, loss and metrics
-scripts/train.py Training CLI
-scripts/infer.py Prediction CLI
-embeddings/      Required fixed model inputs
-requirements.txt Python dependencies
-LICENSE          Upstream code license
-```
