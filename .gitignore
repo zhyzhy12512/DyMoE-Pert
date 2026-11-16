@@ -1,0 +1,12 @@
+data/
+*.zip
+*.tar.gz
+*.pt
+*.pkl
+*.npz
+!embeddings/*.npz
+pred_dymoe_*.npz
+*.log
+*.part
+__pycache__/
+*.pyc
